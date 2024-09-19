@@ -7,19 +7,18 @@ public class App {
 
         Scanner clavier = new Scanner(System.in);
 
-        System.out.println("Entrez votre nom :");
-        String nomUtilisateur = clavier.nextLine();
+        System.out.println("Entrez votre année :");
+        int annee = clavier.nextInt();
 
-        System.out.println("Entrez le nom d'un ou plusieurs object que vous possédez");
-        String objetPossedez = clavier.nextLine();
-
-        System.out.println("Entrez le nombre de fois que vous possédez cette objet");
-        String nombreObjetPossede = clavier.nextLine();
-
-        System.out.println("Entrez comment cela vous rend");
-        String humeur = clavier.nextLine();
-        
-        System.out.println("il etait une fois " + nomUtilisateur + " qui avait " + nombreObjetPossede + " " + objetPossedez + ". Cela le rendait tres " + humeur);
+        if(annee % 4 == 0) {
+            if( annee % 100 != 0 || annee % 400 == 0){
+                System.out.println("L'année " + annee + " est bissextile");
+            }else{
+                System.out.println("L'année " + annee + " n'est pas bissextile");
+            }
+        }else{
+            System.out.println("L'année " + annee + " n'est pas bissextile");
+        }
         
         clavier.close();
     }    
