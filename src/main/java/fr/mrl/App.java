@@ -3,7 +3,6 @@ package fr.mrl;
 import java.util.Scanner;
 
 public class App {
-    
     public static void main(String[] args) {
 
         Scanner clavier = new Scanner(System.in);
