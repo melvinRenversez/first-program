@@ -7,18 +7,32 @@ public class App {
 
         Scanner clavier = new Scanner(System.in);
 
-        System.out.println("Entrez votre année :");
-        int annee = clavier.nextInt();
+        int nombreATrouve = (int)(Math.random() * 100);
+        
+        int tentative = 1;
 
-        if(annee % 4 == 0) {
-            if( annee % 100 != 0 || annee % 400 == 0){
-                System.out.println("L'année " + annee + " est bissextile");
+        System.out.println(nombreATrouve);
+
+        System.out.println("Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.");
+        System.out.println("Entrez un nombre : ");
+        int nbEntre = clavier.nextInt();
+
+
+        while (nbEntre != nombreATrouve){
+
+            if (nbEntre < nombreATrouve) {
+                System.out.println("Le nombre a trouver est plus petit");
             }else{
-                System.out.println("L'année " + annee + " n'est pas bissextile");
+                System.out.println("Le nombre a trouver est plus grand");
             }
-        }else{
-            System.out.println("L'année " + annee + " n'est pas bissextile");
+
+            System.out.println("Entrez un nombre : ");
+            nbEntre = clavier.nextInt();
+            tentative += 1;
+
         }
+
+        System.out.println("Bravo vous avez Trouvez au bout de " + tentative + " tentative");
         
         clavier.close();
     }    
