@@ -9,9 +9,11 @@ public class Repetition1000 {
         int nbPense = 50;
         int borneMax = 100;
         int nbBoucle = 0;
+        int nbBoucleTODO = 10000;
+        float moyenne = 0;
         
         
-        while (nbBoucle < 10000) {
+        while (nbBoucle < nbBoucleTODO) {
             
             nbATrouver = (int)(Math.random() * 100);
             nbPense = 50;
@@ -22,9 +24,9 @@ public class Repetition1000 {
             while (!nbTrouver) {
     
                 if(nbPense == nbATrouver){
-                    System.out.println("Jeux : " + nbBoucle + " :: j'ai trouver " + nbATrouver + " en " + tentative + " tentative");
                     nbBoucle += 1;
                     nbTrouver = true;
+                    moyenne += tentative;
                 }else{
         
                     if(nbPense > nbATrouver){
@@ -38,5 +40,7 @@ public class Repetition1000 {
                 }
             }
         }
+        moyenne = moyenne/nbBoucleTODO;
+        System.out.println("Je trouve les nombres avec un moyenne de " + moyenne + " tentative");
     }
 }
