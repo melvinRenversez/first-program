@@ -6,33 +6,57 @@ public class App {
     public static void main(String[] args) {
 
         Scanner clavier = new Scanner(System.in);
-
-        int nombreATrouve = (int)(Math.random() * 100);
-        
         int tentative = 1;
 
-        System.out.println(nombreATrouve);
+        boolean nbEntre = false;
+        boolean nbTrouver = false;
+        String plusMoin = "";
+        int nbATrouver = 0;
+        int nbPense = 50;
+        int borneMax = 100;
+        
+        System.out.println("Entrez le nombre que je vais devoir devine entre 0 et 100");
 
-        System.out.println("Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.");
-        System.out.println("Entrez un nombre : ");
-        int nbEntre = clavier.nextInt();
-
-
-        while (nbEntre != nombreATrouve){
-
-            if (nbEntre < nombreATrouve) {
-                System.out.println("Le nombre a trouver est plus grand");
+        while (!nbEntre) {
+            nbATrouver = clavier.nextInt();
+            if (nbATrouver >= 0 && nbATrouver <= 100) {
+                nbEntre = true;
             }else{
-                System.out.println("Le nombre a trouver est plus petit");
+                System.out.println("votre nombre n'est pas comprit enter 0 et 100");
             }
-
-            System.out.println("Entrez un nombre : ");
-            nbEntre = clavier.nextInt();
-            tentative += 1;
-
         }
 
-        System.out.println("Bravo vous avez Trouvez au bout de " + tentative + " tentative");
+        System.out.println(nbATrouver);
+
+
+        while (!nbTrouver) {
+            System.out.println("je pense a " + nbPense);
+
+            if(nbPense == nbATrouver){
+                System.out.println("j'ai trouver en " + tentative+ " bien jouer a toi");
+                nbTrouver = true;
+            }else{
+                System.out.println("Votre nombre est il plus grand ou plus petit ( + ou - )");
+                plusMoin = clavier.nextLine();
+
+                System.out.println("pm " + plusMoin);
+    
+                if(plusMoin.equals("-")){
+                    System.err.println("moin");
+                    borneMax = nbPense;
+                    nbPense = (int)(nbPense / 2);
+                    tentative +=1;
+                }else if(plusMoin.equals("+")){
+                    borneMin = nbPense;
+                    nbPense = (int)(nbPense + ((borneMax - nbPense) / 2));
+                    tentative +=1;
+                }else{
+                    System.out.println("viellez choisir ( + ou - )");
+                }
+            }
+
+
+        }
         
         clavier.close();
     }    
