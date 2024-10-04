@@ -29,7 +29,6 @@ public class App {
             System.out.println("Entrez un nombre : ");
             nbEntre = clavier.nextInt();
             tentative += 1;
-            
 
         }
 
