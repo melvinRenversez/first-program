@@ -47,7 +47,6 @@ public class App {
                     nbPense = (int)(nbPense / 2);
                     tentative +=1;
                 }else if(plusMoin.equals("+")){
-                    borneMin = nbPense;
                     nbPense = (int)(nbPense + ((borneMax - nbPense) / 2));
                     tentative +=1;
                 }else{
