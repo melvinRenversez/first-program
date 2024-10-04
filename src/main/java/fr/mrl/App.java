@@ -21,9 +21,9 @@ public class App {
         while (nbEntre != nombreATrouve){
 
             if (nbEntre < nombreATrouve) {
-                System.out.println("Le nombre a trouver est plus petit");
-            }else{
                 System.out.println("Le nombre a trouver est plus grand");
+            }else{
+                System.out.println("Le nombre a trouver est plus petit");
             }
 
             System.out.println("Entrez un nombre : ");
